@@ -1,0 +1,433 @@
+//  библиотека normalize очищает от дефолтных стилей браузер и добавить
+// дефолтную стилизацию для многих эл-ов
+@import './node_modules/normalize.css/normalize';
+@import 'variables';
+@import '../img/sprite/sprite';
+@import 'mixins';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;800&family=Roboto:wght@400;900&display=swap');
+
+.hide{
+    display: none!important;
+    opacity: 0;
+}
+.d-flex{
+    display: flex;
+}
+.flex-coulumn{
+    flex-direction: column;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.align-items-center{
+    align-items: center;
+}
+:root{
+    --size:50px;
+}
+body{
+    padding: 0;
+    position: relative;
+    background-color: $bodyBackground;
+    color:$mainColor;
+    font-size: 16px;
+    font-family: $roboto;
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        background: #F9F9F9;
+        left: var(--size);
+        @media screen and (max-width: 450px){
+            display: none;
+        }
+    }
+}
+.wrapper{
+    margin: 0 auto;
+    width: 1140px;
+    @media screen and (max-width: 1150px) {
+        width: 90%;
+    }
+}
+button{
+    cursor: pointer;
+}
+header{
+    position: relative;
+    padding: 50px 0;
+    z-index: 3;
+    @media screen and (max-width: 1150px) {
+        .wrapper{
+            flex-direction: column;
+            align-items: flex-start;
+            .logo-block, nav{
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+.logo-block{
+    font-family: $roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: 2px;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+    li{
+        list-style: none;
+        display: inline-block;
+        padding: 0 30px 0 0;
+        &:last-child{
+            padding: 0;
+        }
+    }
+    a{
+        font-family: $nunito;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 19px;
+        line-height: 120%;
+        letter-spacing: 1px;
+        position: relative;
+        color:$mainColor;
+        text-decoration: none;
+        padding-bottom: 5px;
+        &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            border-radius: 7px;
+            transition: all 1s ease;
+            background-color: $secondaryColor;
+        }
+        &:hover{
+            &::after{
+                width: 100%;
+            }
+        }
+        &.active{
+            &::after{
+                left: 50%;
+                width: 7px;
+                height: 7px;
+                bottom: -3px;                
+            }
+
+        }
+    }
+    @media screen and (max-width: 420px) {
+        li{
+            padding: 0 15px 0 0;
+        }
+        a{
+            font-size: 14px;
+        }
+    }
+}
+.search-block{
+    margin-top: 5px;
+   a{
+    font-family: $nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 120%;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: $mainColor;
+    padding-bottom: 5px;
+   } 
+   button{
+       background-color: transparent;
+       padding: 0 0 0 30px;
+       border: none;
+       line-height: 1;
+   }
+   @media screen and (max-width: 420px) {
+    width: 100%;
+        a{
+            font-size: 14px;
+        }
+        button{
+            padding: 0 0 0 15px;
+            img{
+                width: 75%;
+            }
+        }        
+    }    
+}
+main{
+    position: relative;
+    z-index: 2;
+    padding: 50px 0;
+}
+article{
+    padding-bottom: 50px;
+    @media screen and (max-width: 1150px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+}
+.image-block{
+    max-width: 420px;
+    width: 100%;
+    img{
+        width: 100%;
+        height: auto;
+        &:hover{
+            transition: all 1s ease;
+            filter: grayscale(70%);
+        }
+    }
+}
+.article-block{
+    padding:0 30px 0 140px;
+    border-right: 1px solid #333;
+    position: relative;
+    .title{
+        color: $secondaryColor;
+        font-family: $nunito;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 120%;
+        letter-spacing: 1px;
+        margin: 0 0 10px 0;
+        position: relative;
+        &::after{
+            content:"";
+            position: absolute;
+            right: 20px;
+            bottom: 5px;
+            width: 11px;
+            height: 11px;
+            background-image: url('../img/plus-icon.svg');
+            
+        }
+    }
+    h2{
+        font-family: $nunito;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 65px;
+        line-height: 120%;        
+        letter-spacing: 1px;
+        margin: 0;
+    }
+    p{
+        padding: 86px 15px 45px;
+        position: relative;
+        color: $articleColor;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 180%;
+        letter-spacing: 1px;
+        &::before{
+            content: "";
+            position: absolute;
+            top:55px;
+            width: 40%;
+            height: 6px;
+            border-radius: 10px;
+            background-color: $secondaryColor;
+        }        
+    }
+    @media screen and (max-width: 1150px) {
+        .image-block{
+            max-width: 320px;
+        }
+        padding: 50px 30px 0 30px;
+        margin-bottom: 50px;
+
+    }
+}
+.video-block{
+    button{
+        display: flex;
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        background-color: $clientBlockBackground;
+        border:none;
+        margin-right: 21px;
+        span{
+            margin: auto;
+        }
+    }
+    .play-icon{
+        @include sprite($play-icon);
+        @include icons-style;
+    }
+    span{
+        font-family: $nunito;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 120%;
+        letter-spacing: 1px;
+    }
+}
+.article-social{
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+    ul{
+        margin: 0;
+        padding: 5px 0 0 0;
+        background-color: #fff;
+    }    
+    li{
+        list-style: none;
+        margin: 9px 0 0 0;
+        background-color: #fff;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        border-radius: 20%;
+        transition: all 0.7s ease;
+        &:hover{
+            background-color: $secondaryColor;
+            border-radius: 100%;
+            .twitter{
+                @include sprite($twitter-hover);
+
+            }
+            .instagram{
+                @include sprite($instagram-hover);
+            }
+            .facebook{
+                @include sprite($facebook-hover)
+            }
+        }        
+    }
+    a{  
+        text-decoration: none;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+    .twitter{
+        @include sprite($twitter);
+    }
+    .instagram{
+        @include sprite($instagram);
+    }
+    .facebook{
+        @include sprite($facebook);
+    }
+    .twitter,.instagram,.facebook{
+        @include icons-style;
+    }
+}
+.clients-block{
+    padding: 30px 0;
+    background-color: $clientBlockBackground;
+    ul{
+        margin: 0;
+        padding: 0;
+
+    } 
+    li{
+        position: relative;
+        display: inline-block;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border:3px solid #fff;
+        overflow: hidden;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    @for $i from 2 through 30 {
+        li {
+          &:nth-child(#{$i}) {
+            left: -(15*$i)+px;
+          }
+        }
+      }
+      a{
+        text-decoration: none;
+        color:$clientColor;
+        font-family: $nunito;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 33px;
+        transition: all 1s ease;
+        &:hover{
+            opacity: 0.85;
+        }
+      } 
+      @media screen and (max-width: 420px) {
+        flex-direction: column;
+        ul{
+            margin: 0 0 20px 40px;
+        }
+        a{
+            font-size: 18px;
+        }
+    }
+}
+.search-modal{
+    z-index: 6;
+    margin: 50px auto;
+    top: 50px;
+    background-color: $bodyBackground;
+    border:2px solid $clientBlockBackground;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 100px;
+    button{
+        border:none;
+        background-color: transparent;
+    }
+    h4{
+        margin: 8px 0;
+    }
+    .close{
+        width: 12px;
+        height: 12px;
+        background-image: url('../img/plus-icon.svg');
+        transform: rotate(45deg);
+    }
+    form{
+        margin-top:15px;
+        button{
+            padding-left: 15px;
+        }
+    }
+    input{
+        border:1px solid $clientBlockBackground;
+        border-radius: 3px;
+        width: 100%;
+    }
+}
+.overlay{
+    display: flex;
+    opacity: 1;
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(242 153 74 / 53%);
+    cursor: pointer;
+}

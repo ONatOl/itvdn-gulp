@@ -1,0 +1,7 @@
+@import 'variables';
+@mixin icons-style {
+    // чтобы наверняка перетереть стили 
+    // из ф-ла D:\ITVDN_Gulp\myItvdnGulpProject\itvdn-gulp\web-page\img\sprite\sprite.scss
+    background-image: url($spritePath)!important;
+    display: inline-block;
+}

@@ -1,0 +1,56 @@
+{
+  "name": "itvdn-gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev",
+    "jsLint": "gulp linter",
+    "htmlLint": "gulp htmllint",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONatOl/itvdn-gulp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ONatOl/gulp-project/issues"
+  },
+  "homepage": "https://github.com/ONatOl/itvdn-gulp#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/node": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "browser-sync": "^2.27.7",
+    "eslint": "^8.4.1",
+    "eslint-config-google": "^0.14.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-w3cjs": "^1.3.2",
+    "postcss": "^8.4.21",
+    "postcss-combine-media-query": "^1.0.1",
+    "sass": "^1.45.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "cssnano": "^5.0.13",
+    "del": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-processhtml": "^1.2.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "gulp.spritesmith": "^6.12.1",
+    "normalize.css": "^8.0.1"
+  }
+}
